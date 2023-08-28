@@ -1,0 +1,8 @@
+{% extends 'layout.html' %}
+{% block title %} URL Shortner | 404 {% endblock %}
+{% block main %}
+<p>We couldn't find what you are looking for :) go back home</p>
+<p><a href="{{url_for('urlshort.home')}}">Home</a></p>
+
+{% endblock %}
+

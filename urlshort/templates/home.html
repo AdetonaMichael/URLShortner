@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block title %} Url Shortener {% endblock %}
+{% block main %}
+<div class="container mt-5">
+   <div class="row">
+    <h2>Best Url Shortener</h2>
+    {% if codes %}
+        <h3> Codes you have created: </h3>
+        <ul>
+            {% for code in codes %}
+                <li><a href="{{url_for('urlshort.redirect_to_url', code=code)}}" alt="code-url">{{ code }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+   </div>
+  <div class="card-deck mb-3">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my font-weight-normal text-center">Website</h4>
+      </div>
+      <div class="card-body">
+        <form action="your-url" method="post">
+          <lable for="url">Website URL</lable>
+          <input class="form-control" type="url" name="url" value="" required>
+          <br/>
+          <label for="code" name="code" value="">Code</label>
+          <input class="form-control" type="text" name="code" value="" required>
+          <br/>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Shorten</button>
+     </form>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal text-center">File</h4>
+      </div>
+      <div class="card-body">
+        <form action="your-url" method="post" enctype="multipart/form-data">
+          <lable for="file">File Upload</lable>
+          <input class="form-control" type="file" name="file" value="" required>
+          <br/>
+          <label for="code" >Short Name</label>
+          <input class="form-control" type="text" name="code" value="" required>
+          <br/>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Shorten</button>
+     </form>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+{% endblock %}

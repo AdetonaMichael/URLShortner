@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{ code }} {% endblock %}
+
+{% block main %}
+    {% block main_title %}Welcome To your {{ code }} URL Page {% endblock %}
+    <div class="text-center">
+        <a href="{{url_for('urlshort.home')}}" class="btn btn-primary rounded-pill">Return Home</a>
+    </div>
+{% endblock %}

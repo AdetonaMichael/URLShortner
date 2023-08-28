@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {{code}} {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="../static/bootstrap.min.css">
+    <style>
+        ul{
+            display: flex;
+        }
+        ul li{
+            list-style: none;
+            padding-left:5px;
+            padding-right:5px;
+        
+        }
+        ul li a{
+            text-decoration: none;
+            color:gray;
+            font: bold 15px tahoma;
+        }
+    </style>
+</head>
+<body>
+<h1>{% block main_title %} {% endblock %}</h1>
+{% for message in get_flashed_messages() %}
+<h2>{{message}}</h2>
+{% endfor %}
+{% block main %}
+
+{% endblock %}
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>
